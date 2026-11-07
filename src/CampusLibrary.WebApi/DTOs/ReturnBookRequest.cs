@@ -4,6 +4,6 @@ namespace CampusLibrary.WebApi.DTOs;
 
 public class ReturnBookRequest
 {
-    [Required]
+    [Range(1, int.MaxValue)]
     public int LoanId { get; set; }
 }

@@ -401,7 +401,7 @@ public class MembersLoansControllerTests
         var result = await controller.Return(loan.Id, new ReturnBookRequest { LoanId = loan.Id });
 
         Assert.IsType<ConflictObjectResult>(result);
-        Assert.Equal(loan.ReturnedAt.Value.Date, loanInDatabase(db, loan.Id).ReturnedAt.Value.Date);
+        Assert.Equal(loan.ReturnedAt.Value.Date, loanInDatabase(db, loan.Id).ReturnedAt.GetValueOrDefault().Date);
     }
 
     [Fact]
@@ -443,6 +443,17 @@ public class MembersLoansControllerTests
         Assert.Equal(2, await db.Loans.CountAsync());
         Assert.Single(db.Loans.Where(l => l.ReturnedAt != null));
         Assert.Equal(2, book.Loans.Count);
+    }
+
+    [Theory]
+    [InlineData(0, 1)]
+    [InlineData(1, 0)]
+    [InlineData(-1, 1)]
+    public void Loans_Borrow_NonPositiveIdsFailValidation(int memberId, int bookId)
+    {
+        var request = NewBorrowRequest(memberId, bookId);
+        Assert.False(System.ComponentModel.DataAnnotations.Validator.TryValidateObject(
+            request, new System.ComponentModel.DataAnnotations.ValidationContext(request), null, true));
     }
 
     private static Loan loanInDatabase(LibraryDbContext db, int loanId) =>

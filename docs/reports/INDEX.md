@@ -14,3 +14,4 @@ This directory contains implementation reports for each task/milestone.
 | 2026-11-07 22:46 | Milestone 5 — MVC Admin Consolidated | [Report](./2026-11-07-2246-milestone5-mvc-consolidated/) |
 | 2026-11-07 22:55 | Restore MVC Client Assets | [Report](./2026-11-07-2255-restore-mvc-client-assets/) |
 | 2026-11-07 22:46 | Milestone 5 — MVC Admin: Consolidated (Books, Members, Loans) | [Report](./2026-11-07-2246-milestone5-mvc-consolidated/) |
+- 2026-11-07 23:39 — Milestones 6–8 Android, integration and UI — [Report](./2026-11-07-2339-milestones6-8-android-integration-ui/)

@@ -148,7 +148,7 @@ public class LoansMvcControllerTests
         var redirect = Assert.IsType<RedirectToActionResult>(result);
         Assert.Equal(nameof(LoansController.Index), redirect.ActionName);
         Assert.Equal("This loan has already been returned.", controller.TempData["Error"]);
-        Assert.Equal(loan.ReturnedAt.Value.Date, db.Loans.Single(l => l.Id == loan.Id).ReturnedAt.Value.Date);
+        Assert.Equal(loan.ReturnedAt.Value.Date, db.Loans.Single(l => l.Id == loan.Id).ReturnedAt.GetValueOrDefault().Date);
     }
 
     [Fact]

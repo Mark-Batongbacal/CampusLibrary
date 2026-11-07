@@ -4,7 +4,7 @@
 }
 
 <div class="container py-4 metro-surface">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="metro-page-heading">
         <h1 class="metro-heading">Members</h1>
         <a asp-controller="Members" asp-action="Create" class="btn btn-metro-accent">Add member</a>
     </div>
@@ -19,9 +19,9 @@
     }
     else
     {
-        <div class="table-responsive">
+        <div class="table-responsive" role="region" aria-label="Member records" tabindex="0">
             <table class="table table-striped table-hover align-middle metro-table">
-                <thead class="table-light">
+                <thead >
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
@@ -35,7 +35,7 @@
                             <td>@member.FullName</td>
                             <td>@member.Email</td>
                             <td class="text-end">
-                                <a asp-action="Details" asp-route-id="@member.Id" class="btn btn-outline-metro btn-sm">View</a>
+                                <a asp-action="Details" asp-route-id="@member.Id" class="btn btn-outline-metro btn-sm" aria-label="View @member.FullName">View</a>
                             </td>
                         </tr>
                     }

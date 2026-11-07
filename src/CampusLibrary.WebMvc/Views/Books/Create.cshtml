@@ -1,20 +1,17 @@
 @model CampusLibrary.WebMvc.Models.Books.BookFormViewModel
-@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 @{
     ViewData["Title"] = Model.Id == 0 ? "Add book" : "Edit book";
-    var antiforgeryTokens = Antiforgery.GetAndStoreTokens(Context);
 }
 
 <div class="container py-4 metro-surface">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="metro-page-heading">
         <h1 class="metro-heading">@ViewData["Title"]</h1>
         <a asp-controller="Books" asp-action="Index" class="btn btn-outline-metro">Back to books</a>
     </div>
 
-    <div class="card metro-card">
+    <div class="card metro-card metro-form">
         <div class="card-body">
             <form asp-action="@(Model.Id == 0 ? "Create" : "Edit")" method="post" novalidate>
-                <input type="hidden" name="@antiforgeryTokens.FormFieldName" value="@antiforgeryTokens.RequestToken" />
                 <input type="hidden" asp-for="Id" />
 
                 <div class="mb-3">
@@ -36,14 +33,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="AvailableCopies" class="form-label">Available copies</label>
+                    <label asp-for="AvailableCopies" class="form-label">Inventory copies</label>
                     <input asp-for="AvailableCopies" class="form-control metro-input" type="number" min="0" />
                     <span asp-validation-for="AvailableCopies" class="text-danger"></span>
                 </div>
 
                 @if (!ViewData.ModelState.IsValid)
                 {
-                    <div class="alert alert-danger metro-alert mb-3">
+                    <div role="alert" class="alert alert-danger metro-alert mb-3">
                         <ul class="mb-0">
                             @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
                             {
