@@ -1,0 +1,43 @@
+# Build outputs
+bin/
+obj/
+
+# IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets and local config
+.env
+*.user
+*.usersecrets
+
+# Docker
+docker-compose.override.yml
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet
+packages/
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+# Android and Gradle
+.gradle/
+.kotlin/
+local.properties
+android/**/build/
+*.jks
+*.keystore

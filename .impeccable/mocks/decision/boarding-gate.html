@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Boarding pass and gate board — CampusLibrary librarian admin</title>
+<style>
+  /* Card 3: boarding pass and gate board — high contrast panels, tabular typography,
+     one alert accent, segmented record panels and fixed column list */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 900px; overflow: hidden; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #111827; background: #ffffff; line-height: 1.4; }
+  a { color: inherit; text-decoration: none; }
+  .topbar { height: 64px; border-bottom: 2px solid #111827; display: flex; align-items: center; padding: 0 32px; background: #ffffff; }
+  .brand { font-weight: 800; font-size: 18px; letter-spacing: -0.02em; margin-right: 40px; }
+  .nav { display: flex; gap: 24px; }
+  .nav a { font-size: 14px; color: #6b7280; padding: 6px 10px; border-radius: 6px; border: 1px solid transparent; }
+  .nav a.active { color: #111827; border-color: #111827; background: #f3f4f6; }
+  .spacer { flex: 1; }
+  .user { font-size: 13px; color: #4b5563; display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 28px; height: 28px; border-radius: 4px; background: #e5e7eb; border: 1px solid #d1d5db; }
+  .wrap { padding: 32px; display: grid; grid-template-columns: 470px 1fr; gap: 24px; height: calc(100% - 96px); overflow-y: auto; }
+  /* Segmented record panels (left column: fixed column list / boarding-pass style panels) */
+  .panel { border: 1px solid #d1d5db; border-radius: 10px; background: #ffffff; margin-bottom: 16px; overflow: hidden; }
+  .panel-head { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 16px; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #374151; display: flex; justify-content: space-between; align-items: center; }
+  .panel-body { padding: 16px; font-size: 13px; color: #111827; }
+  .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; }
+  .row:last-child { border-bottom: none; }
+  .row .k { color: #6b7280; font-size: 12px; }
+  .row .v { font-weight: 600; }
+  .alert { color: #b91c1c; font-weight: 800; }
+  .fixed { border: 1px solid #d1d5db; border-radius: 10px; background: #ffffff; height: 100%; display: flex; flex-direction: column; }
+  .fixed-head { background: #111827; color: #ffffff; padding: 12px 16px; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; border-bottom: 1px solid #111827; display: flex; justify-content: space-between; align-items: center; }
+  .fixed-body { padding: 0; overflow: auto; flex: 1; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; color: #6b7280; font-weight: 700; padding: 10px 12px; border-bottom: 2px solid #111827; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f3f4f6; vertical-align: top; color: #111827; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f9fafb; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 800; background: #e5e7eb; color: #111827; }
+  .badge.alert { background: #fef2f2; color: #b91c1c; border: 1px solid #fee2e2; }
+  .smallnote { font-size: 11px; color: #6b7280; margin-top: 10px; border-top: 1px solid #f3f4f6; padding-top: 8px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">CampusLibrary</div>
+  <nav class="nav">
+    <a href="#" class="active">Loans</a>
+    <a href="#">Books</a>
+    <a href="#">Members</a>
+  </nav>
+  <div class="spacer"></div>
+  <div class="user"><div class="avatar"></div><span>circulation desk</span></div>
+</header>
+<div class="wrap">
+  <aside class="fixed">
+    <div class="fixed-head">Gate board <span style="font-weight:400;font-size:11px;letter-spacing:normal;opacity:0.9">Open loans · returns</span></div>
+    <div class="fixed-body">
+      <table>
+        <thead><tr><th>Book</th><th>Member</th><th>Borrowed</th><th>Due</th></tr></thead>
+        <tbody>
+          <tr><td>The Architecture of Campus Life</td><td>J. Alvarez</td><td>Oct 12</td><td>Oct 26</td></tr>
+          <tr><td>Modern Web Development</td><td>T. Nguyen</td><td>Oct 14</td><td>Oct 28</td></tr>
+          <tr><td>Introduction to Database Systems</td><td>R. Okafor</td><td>Oct 10</td><td>Oct 24</td></tr>
+          <tr><td>Designing Data-Intensive Applications</td><td>L. Dubois</td><td>Oct 8</td><td>Oct 22</td></tr>
+          <tr class="alert"><td>Typography for Interfaces</td><td>M. Chen</td><td>Sep 28</td><td>Overdue</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </aside>
+  <main>
+    <section class="panel">
+      <div class="panel-head">Record 1 · Book <span style="font-weight:400">· return due Oct 26</span></div>
+      <div class="panel-body">
+        <div class="row"><span class="k">Title</span><span class="v">The Architecture of Campus Life</span></div>
+        <div class="row"><span class="k">Author</span><span class="v">A. Rivera</span></div>
+        <div class="row"><span class="k">ISBN</span><span class="v">978-0-123456-78-9</span></div>
+        <div class="row"><span class="k">Borrower</span><span class="v">J. Alvarez</span></div>
+        <div class="row"><span class="k">Borrowed at</span><span class="v">Oct 12, 2025 · 09:14</span></div>
+        <div class="row"><span class="k">Due back</span><span class="v">Oct 26, 2025</span></div>
+        <div class="row"><span class="k">Status</span><span class="v alert">Open — not returned</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="panel-head">Record 2 · Book <span style="font-weight:400">· return due Oct 28</span></div>
+      <div class="panel-body">
+        <div class="row"><span class="k">Title</span><span class="v">Modern Web Development</span></div>
+        <div class="row"><span class="k">Author</span><span class="v">S. Okonkwo</span></div>
+        <div class="row"><span class="k">ISBN</span><span class="v">978-0-123456-80-2</span></div>
+        <div class="row"><span class="k">Borrower</span><span class="v">T. Nguyen</span></div>
+        <div class="row"><span class="k">Borrowed at</span><span class="v">Oct 14, 2025 · 11:02</span></div>
+        <div class="row"><span class="k">Due back</span><span class="v">Oct 28, 2025</span></div>
+        <div class="row"><span class="k">Status</span><span class="v">Open</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="panel-head">Record 3 · Book <span style="font-weight:400">· return due Oct 24</span></div>
+      <div class="panel-body">
+        <div class="row"><span class="k">Title</span><span class="v">Introduction to Database Systems</span></div>
+        <div class="row"><span class="k">Author</span><span class="v">M. Chen</span></div>
+        <div class="row"><span class="k">ISBN</span><span class="v">978-0-123456-79-6</span></div>
+        <div class="row"><span class="k">Borrower</span><span class="v">R. Okafor</span></div>
+        <div class="row"><span class="k">Borrowed at</span><span class="v">Oct 10, 2025 · 14:33</span></div>
+        <div class="row"><span class="k">Due back</span><span class="v">Oct 24, 2025</span></div>
+        <div class="row"><span class="k">Status</span><span class="v">Open</span></div>
+      </div>
+    </section>
+    <p class="smallnote">One alert accent: #b91c1c (overdue). High-contrast panels, tabular typography, segmented record panels and a fixed column list — boarding-pass/gate-board vocabulary, no extra branding.</p>
+  </main>
+</div>
+</body>
+</html>

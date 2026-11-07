@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Variable-font specimen — CampusLibrary librarian admin</title>
+<style>
+  /* Card 1: variable-font specimen — near-white ground, black type, foundry accent */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 900px; overflow: hidden; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #111827; background: #fafaf9; line-height: 1.4; }
+  a { color: inherit; text-decoration: none; }
+  /* Admin navigation (standard top bar + side controls) */
+  .topbar { height: 64px; border-bottom: 1px solid #e7e5e4; display: flex; align-items: center; padding: 0 32px; background: #ffffff; }
+  .brand { font-weight: 700; letter-spacing: -0.02em; font-size: 18px; margin-right: 40px; }
+  .nav { display: flex; gap: 24px; }
+  .nav a { font-size: 14px; color: #6b7280; padding: 6px 10px; border-radius: 6px; }
+  .nav a.active { color: #111827; background: #f3f4f6; }
+  .nav a:hover { background: #f3f4f6; }
+  .spacer { flex: 1; }
+  .user { font-size: 13px; color: #4b5563; display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: #e5e7eb; }
+  .wrap { padding: 32px; display: grid; grid-template-columns: 1fr 320px; gap: 32px; height: calc(100% - 96px); overflow-y: auto; }
+  /* Specimen area */
+  .specimen { border: 1px solid #e7e5e4; border-radius: 12px; background: #ffffff; padding: 40px; height: 100%; display: flex; flex-direction: column; gap: 24px; }
+  .glyph { font-size: 220px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #111827; font-variation-settings: "wght" 900; }
+  .axis { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-top: -10px; }
+  .controls { display: flex; gap: 16px; align-items: center; margin-top: 8px; }
+  .slider { width: 260px; height: 6px; background: #e5e7eb; border-radius: 3px; appearance: none; outline: none; accent-color: #3b2a6a; }
+  .slider::-webkit-slider-thumb { width: 18px; height: 18px; background: #3b2a6a; border-radius: 50%; cursor: pointer; appearance: none; }
+  .axisval { font-variation-settings: "wght" 500; font-size: 20px; font-weight: 500; color: #111827; min-width: 44px; text-align: right; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
+  .cell { border: 1px solid #e7e5e4; border-radius: 8px; padding: 12px; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: #111827; text-align: center; font-variation-settings: "wght" 700; background: #ffffff; }
+  .cell.small { font-size: 14px; font-weight: 400; letter-spacing: normal; font-variation-settings: "wght" 400; color: #6b7280; padding: 16px 8px; line-height: 1.3; }
+  .foundry { color: #3b2a6a; }
+  /* Table area (standard admin table controls) */
+  .pane { border: 1px solid #e7e5e4; border-radius: 12px; background: #ffffff; padding: 24px; height: 100%; display: flex; flex-direction: column; }
+  .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .head h2 { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+  .actions { display: flex; gap: 8px; }
+  button { appearance: none; border: 1px solid #d1d5db; background: #ffffff; color: #111827; padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  button:hover { background: #f9fafb; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: #6b7280; font-weight: 600; padding: 10px 8px; border-bottom: 1px solid #e5e7eb; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+  td { padding: 10px 8px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; background: #eff6ff; color: #1d4ed8; }
+  .badge.out { background: #fef2f2; color: #b91c1c; }
+  .smallnote { font-size: 12px; color: #6b7280; margin-top: 12px; border-top: 1px solid #f3f4f6; padding-top: 10px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">CampusLibrary</div>
+  <nav class="nav">
+    <a href="#" class="active">Books</a>
+    <a href="#">Members</a>
+    <a href="#">Loans</a>
+  </nav>
+  <div class="spacer"></div>
+  <div class="user"><div class="avatar"></div><span>Librarian admin</span></div>
+</header>
+<div class="wrap">
+  <section class="specimen">
+    <div class="glyph foundry">B</div>
+    <div class="axis">Weight axis — specimen at <span class="axisval">700</span></div>
+    <div class="controls">
+      <input type="range" class="slider" min="100" max="900" value="700">
+      <span class="axisval">wght 700</span>
+    </div>
+    <div class="grid">
+      <div class="cell">B</div>
+      <div class="cell">o</div>
+      <div class="cell">o</div>
+      <div class="cell">k</div>
+      <div class="cell small">Books catalog</div>
+      <div class="cell small">Membership records</div>
+      <div class="cell small">Open loans</div>
+      <div class="cell small">Returns history</div>
+    </div>
+  </section>
+  <section class="pane">
+    <div class="head">
+      <h2>Books</h2>
+      <div class="actions"><button>Add book</button><button>Export</button></div>
+    </div>
+    <table>
+      <thead><tr><th>Title</th><th>Author</th><th>ISBN</th><th>Available</th><th>Open loan</th></tr></thead>
+      <tbody>
+        <tr><td>The Architecture of Campus Life</td><td>A. Rivera</td><td>978-0-123456-78-9</td><td><span class="badge">3 copies</span></td><td><span class="badge out">Out</span></td></tr>
+        <tr><td>Introduction to Database Systems</td><td>M. Chen</td><td>978-0-123456-79-6</td><td><span class="badge">2 copies</span></td><td>—</td></tr>
+        <tr><td>Modern Web Development</td><td>S. Okonkwo</td><td>978-0-123456-80-2</td><td><span class="badge">1 copy</span></td><td><span class="badge out">Out</span></td></tr>
+        <tr><td>Designing Data-Intensive Applications</td><td>K. Petrov</td><td>978-0-123456-81-9</td><td><span class="badge">4 copies</span></td><td>—</td></tr>
+        <tr><td>Typography for Interfaces</td><td>L. DuBois</td><td>978-0-123456-82-6</td><td><span class="badge">5 copies</span></td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="smallnote">Foundry accent: #3b2a6a. Axis slider controls the specimen glyph weight; the grid redraws at the selected axis. No branding beyond CampusLibrary.</p>
+  </section>
+</div>
+</body>
+</html>

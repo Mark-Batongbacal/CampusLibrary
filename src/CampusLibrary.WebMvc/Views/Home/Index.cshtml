@@ -1,0 +1,43 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] ??= "Home";
+}
+
+<div class="container py-4 metro-surface">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="metro-heading">CampusLibrary</h1>
+        <a asp-controller="Books" asp-action="Create" class="btn btn-metro-accent">Add book</a>
+    </div>
+
+    <p class="text-muted mb-0">Librarian admin workspace. Manage books, members, and open loans.</p>
+
+    <div class="row g-3 mt-4">
+        <div class="col-12 col-md-4">
+            <div class="card metro-card h-100">
+                <div class="card-body">
+                    <h5 class="card-title metro-heading mb-2">Books</h5>
+                    <p class="card-text mb-3">@ViewData["BookCount"] books in the catalog.</p>
+                    <a asp-controller="Books" asp-action="Index" class="btn btn-outline-metro btn-sm">Browse books</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card metro-card h-100">
+                <div class="card-body">
+                    <h5 class="card-title metro-heading mb-2">Members</h5>
+                    <p class="card-text mb-3">@ViewData["MemberCount"] members registered.</p>
+                    <a asp-controller="Members" asp-action="Index" class="btn btn-outline-metro btn-sm">View members</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card metro-card h-100">
+                <div class="card-body">
+                    <h5 class="card-title metro-heading mb-2">Open loans</h5>
+                    <p class="card-text mb-3">@ViewData["OpenLoanCount"] loans currently out.</p>
+                    <a asp-controller="Loans" asp-action="Index" class="btn btn-outline-metro btn-sm">Process returns</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

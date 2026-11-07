@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CampusLibrary</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="metro-topbar">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <a asp-controller="Home" asp-action="Index" class="metro-brand">CampusLibrary</a>
+            <nav class="d-none d-md-flex gap-3">
+                <a class="metro-nav-link" asp-controller="Books" asp-action="Index">Books</a>
+                <a class="metro-nav-link" asp-controller="Members" asp-action="Index">Members</a>
+                <a class="metro-nav-link" asp-controller="Loans" asp-action="Index">Loans</a>
+            </nav>
+            <div class="d-flex gap-2">
+                <a class="btn btn-metro-accent btn-sm" asp-controller="Books" asp-action="Create">Add book</a>
+            </div>
+        </div>
+        <div class="d-md-none d-flex justify-content-center p-2 border-top">
+            <a class="metro-nav-link" asp-controller="Books" asp-action="Index">Books</a>
+            <a class="metro-nav-link" asp-controller="Members" asp-action="Index">Members</a>
+            <a class="metro-nav-link" asp-controller="Loans" asp-action="Index">Loans</a>
+        </div>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="metro-topbar mt-5">
+        <div class="container d-flex justify-content-center py-3 border-top">
+            <p class="m-0 text-secondary" style="color:#666;">CampusLibrary &mdash; librarian admin</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

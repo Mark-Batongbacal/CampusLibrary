@@ -1,0 +1,47 @@
+@model CampusLibrary.WebMvc.Models.Members.MemberIndexViewModel
+@{
+    ViewData["Title"] = "Members";
+}
+
+<div class="container py-4 metro-surface">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="metro-heading">Members</h1>
+        <a asp-controller="Members" asp-action="Create" class="btn btn-metro-accent">Add member</a>
+    </div>
+
+    @if (!Model.Members.Any())
+    {
+        <div class="card metro-card mb-4">
+            <div class="card-body text-center py-4">
+                <p class="text-muted mb-0">There are no members.</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle metro-table">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col" class="text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var member in Model.Members)
+                    {
+                        <tr>
+                            <td>@member.FullName</td>
+                            <td>@member.Email</td>
+                            <td class="text-end">
+                                <a asp-action="Details" asp-route-id="@member.Id" class="btn btn-outline-metro btn-sm">View</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+

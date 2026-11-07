@@ -1,0 +1,60 @@
+@model CampusLibrary.WebMvc.Models.Members.MemberDetailsViewModel
+@{
+    ViewData["Title"] = $"Member - {Model.FullName}";
+}
+
+<div class="container py-4 metro-surface">
+    <div class="d-flex justify-content-between align-items-start mb-4">
+        <div>
+            <h1 class="metro-heading">@Model.FullName</h1>
+            <p class="text-muted mb-0">@Model.Email</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-controller="Members" asp-action="Index" class="btn btn-outline-metro">Back to members</a>
+        </div>
+    </div>
+
+    <div class="card metro-card mb-4">
+        <div class="card-body">
+            <h5 class="card-title metro-heading mb-3">Borrowing history</h5>
+
+            @if (!Model.Loans.Any())
+            {
+                <div class="text-center py-4">
+                    <p class="text-muted mb-0">This member has no borrowing history.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle metro-table">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Book</th>
+                                <th scope="col">Borrowed at</th>
+                                <th scope="col">Returned at</th>
+                                <th scope="col" class="text-end">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var loan in Model.Loans)
+                            {
+                                <tr>
+                                    <td>@loan.BookTitle</td>
+                                    <td>@loan.BorrowedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                                    <td>@(loan.ReturnedAt.HasValue ? loan.ReturnedAt.Value.ToString("yyyy-MM-dd HH:mm") : "—")</td>
+                                    <td class="text-end">
+                                        <span class="@(loan.ReturnedAt is null ? "badge bg-metro-open text-dark" : "badge bg-metro-returned")">
+                                            @(loan.ReturnedAt is null ? "Open" : "Returned")
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "/home/mark/Documents/CampusLibrary/.impeccable/mocks/decision/metro-tiles.html"
+        ],
+        "createdAt": "2026-11-07T14:17:02.531Z",
+        "reason": "User-pinned metro aesthetic: black ground with small saturated tags/labels (concept-seed d07e75ac). Intentional contrast, not a defect."
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          "/home/mark/Documents/CampusLibrary/.impeccable/mocks/decision/metro-tiles.html"
+        ],
+        "createdAt": "2026-11-07T14:17:02.545Z",
+        "reason": "User-pinned metro aesthetic: 11px tag labels are deliberate small print beside oversized type (concept-seed d07e75ac)."
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          "/home/mark/Documents/CampusLibrary/.impeccable/mocks/decision/boarding-gate.html"
+        ],
+        "createdAt": "2026-11-07T14:17:02.560Z",
+        "reason": "User-pinned boarding-pass aesthetic: 11px fine print is deliberate small print on record panels (concept-seed d07e75ac)."
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/*.html"
+        ],
+        "createdAt": "2026-11-07T14:48:49.413Z",
+        "reason": "Agent: decision mock fixtures explore rough visual options and are not shipped interactive UI"
+      }
+    ]
+  }
+}

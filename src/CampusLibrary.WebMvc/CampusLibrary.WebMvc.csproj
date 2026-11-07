@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>851bade8-4d45-4d95-8cd1-f021e1167590</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../CampusLibrary.Data/CampusLibrary.Data.csproj" />
+    <ProjectReference Include="../CampusLibrary.WebApi/CampusLibrary.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: campuslibrary-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}"
+    ports:
+      - "127.0.0.1:1433:1433"
+    volumes:
+      - campuslibrary_sql_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  campuslibrary_sql_data:
